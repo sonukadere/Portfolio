@@ -62,8 +62,8 @@ export default function Education({ data }) {
                       <Building2 size={15} className="edu-icon" />
                       <span className="edu-inst-name">{item.institute}</span>
                     </div>
-                    <div className="edu-info-line">
-                      <MapPin size={14} className="edu-icon" />
+                    <div className="edu-info-line edu-univ-highlight">
+                      <MapPin size={14} className="edu-icon location-icon" />
                       <span className="edu-univ-name">{item.university}</span>
                     </div>
                   </div>

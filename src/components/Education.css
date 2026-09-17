@@ -172,9 +172,27 @@
   color: var(--text-primary);
 }
 
+.edu-univ-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  width: fit-content;
+  margin-top: 2px;
+}
+
+.edu-univ-highlight .location-icon {
+  color: var(--accent-cyan);
+}
+
 .edu-univ-name {
-  font-size: 0.86rem;
-  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  letter-spacing: 0.01em;
 }
 
 .edu-summary-text {
