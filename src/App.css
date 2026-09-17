@@ -1,0 +1,49 @@
+/* App Level Layout & Floating Helpers */
+.portfolio-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* Floating Quick Edit Trigger on Bottom Right */
+.floating-customize-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  background: linear-gradient(135deg, #10b981, #0284c7);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-full);
+  padding: 10px 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.floating-customize-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(16, 185, 129, 0.6);
+}
+
+@media (max-width: 640px) {
+  .floating-customize-btn {
+    bottom: 16px;
+    right: 16px;
+    padding: 8px 14px;
+    font-size: 0.78rem;
+  }
+}
