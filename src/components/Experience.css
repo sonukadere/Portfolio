@@ -1,10 +1,15 @@
-.experience-timeline {
-  max-width: 920px;
-  margin: 0 auto;
+/* Experience Timeline Section */
+.experience-section {
   position: relative;
+}
+
+.experience-timeline {
+  max-width: 900px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 36px;
+  position: relative;
 }
 
 .timeline-item {
@@ -13,6 +18,7 @@
   position: relative;
 }
 
+/* Marker Node & Branch Line */
 .timeline-marker {
   display: flex;
   flex-direction: column;
@@ -21,132 +27,216 @@
   width: 44px;
 }
 
-.marker-dot {
-  width: 44px;
-  height: 44px;
+.marker-node {
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background: rgba(16, 185, 129, 0.15);
-  border: 2px solid var(--accent-green-bright);
+  background: #161b22;
+  border: 2px solid #30363d;
+  color: var(--accent-cyan);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--accent-green-bright);
-  box-shadow: 0 0 16px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   z-index: 2;
-  transition: transform var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
-.timeline-item:hover .marker-dot {
-  transform: scale(1.1);
-  box-shadow: 0 0 22px rgba(16, 185, 129, 0.5);
+.marker-node.node-active {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: var(--accent-green-bright);
+  color: var(--accent-green-bright);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.35);
 }
 
-.marker-line {
+.timeline-item:hover .marker-node {
+  transform: scale(1.08);
+  border-color: var(--accent-cyan);
+  color: #fff;
+}
+
+.marker-branch-line {
   width: 2px;
   flex: 1;
-  background: linear-gradient(180deg, var(--accent-green) 0%, rgba(30, 41, 59, 0.6) 100%);
-  margin-top: 8px;
+  background: linear-gradient(180deg, rgba(56, 189, 248, 0.5) 0%, rgba(48, 54, 61, 0.6) 100%);
+  margin-top: 10px;
   min-height: 80px;
 }
 
+/* Experience Card */
 .experience-card {
   flex: 1;
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 28px;
-  box-shadow: var(--shadow-md);
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: var(--radius-md);
+  padding: 26px 28px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
   transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline-item.current-item .experience-card {
+  border-color: rgba(16, 185, 129, 0.3);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 25px rgba(16, 185, 129, 0.08);
 }
 
 .experience-card:hover {
-  border-color: rgba(16, 185, 129, 0.35);
-  box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.6);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 25px rgba(56, 189, 248, 0.1);
   transform: translateY(-2px);
 }
 
-.exp-card-header {
+/* Top Bar */
+.exp-top-bar {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 14px;
+  gap: 12px;
+  flex-wrap: wrap;
   padding-bottom: 14px;
-  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.git-commit-tag {
+.exp-git-chip {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   font-family: var(--font-mono);
   font-size: 0.74rem;
-  color: #58a6ff;
-  background: rgba(88, 166, 255, 0.1);
-  border: 1px solid rgba(88, 166, 255, 0.25);
-  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 3px 9px;
   border-radius: var(--radius-sm);
-  margin-bottom: 8px;
 }
 
-.git-branch-label {
+.git-chip-prefix {
   color: var(--text-muted);
-  font-size: 0.7rem;
-  border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.git-chip-hash {
+  color: #58a6ff;
+  font-weight: 600;
+}
+
+.git-chip-branch {
+  color: var(--accent-green-bright);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
   padding-left: 6px;
 }
 
-.exp-role {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 4px;
-}
-
-.exp-company {
-  font-size: 0.96rem;
-  font-weight: 600;
-  color: var(--accent-green-bright);
-}
-
-.exp-meta-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
+.exp-time-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--text-muted);
 }
 
-.meta-item {
-  display: flex;
+.status-badge-active {
+  display: inline-flex;
   align-items: center;
   gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent-green-bright);
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  margin-left: 4px;
 }
 
-.exp-summary {
-  font-size: 0.94rem;
+.status-dot-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-green-bright);
+  box-shadow: 0 0 6px var(--accent-green-bright);
+}
+
+/* Role & Company */
+.exp-header-info {
+  margin-bottom: 14px;
+}
+
+.exp-role-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.exp-company-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.exp-company-name {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+}
+
+.exp-location-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+/* Overview */
+.exp-overview {
+  font-size: 0.92rem;
+  line-height: 1.65;
   color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
+}
+
+/* Accomplishments */
+.exp-accomplishments {
+  margin-bottom: 20px;
+}
+
+.accomplishments-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.sparkle-icon {
+  color: var(--accent-amber);
 }
 
 .exp-points-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 9px;
 }
 
 .exp-point-item {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-size: 0.92rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #cbd5e1;
 }
 
 .point-icon {
@@ -155,33 +245,76 @@
   margin-top: 3px;
 }
 
+/* Tech Pills */
 .exp-tech-strip {
   display: flex;
   align-items: center;
+  gap: 10px;
   flex-wrap: wrap;
-  gap: 8px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .tech-label {
-  font-size: 0.78rem;
-  color: var(--text-muted);
   font-family: var(--font-mono);
-  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
 }
 
+.tech-pills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.exp-tech-pill {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 3px 9px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.exp-tech-pill:hover {
+  color: var(--accent-cyan);
+  border-color: rgba(56, 189, 248, 0.3);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .timeline-marker {
-    display: none;
+  .experience-timeline {
+    gap: 28px;
   }
 
-  .exp-card-header {
+  .timeline-item {
+    gap: 14px;
+  }
+
+  .timeline-marker {
+    width: 32px;
+  }
+
+  .marker-node {
+    width: 32px;
+    height: 32px;
+  }
+
+  .experience-card {
+    padding: 20px 18px;
+  }
+
+  .exp-role-title {
+    font-size: 1.12rem;
+  }
+
+  .exp-top-bar {
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  .exp-meta-badge {
-    align-items: flex-start;
+    gap: 8px;
   }
 }
