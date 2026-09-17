@@ -49,12 +49,11 @@ export default function Navbar({ data, onOpenEdit }) {
   return (
     <header className={`navbar-header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
-        {/* Brand Developer Logo: <SK /> sonu.dev */}
+        {/* Brand Developer Logo: <SK /> */}
         <a href="#hero" className="navbar-brand">
           <span className="brand-code-bracket">&lt;</span>
           <span className="brand-code-name">SK</span>
           <span className="brand-code-bracket"> /&gt;</span>
-          <span className="brand-subname">sonu.dev</span>
         </a>
 
         {/* Desktop Navigation */}
