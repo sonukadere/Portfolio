@@ -7,9 +7,9 @@ import { GithubIcon, LinkedinIcon } from './Icons';
 import './Hero.css';
 
 const ROLES = [
-  "React.js Developer",
+  "MERN Stack Developer",
   "Frontend Developer",
-  "MERN Stack Developer"
+  "React.js Developer"
 ];
 
 export default function Hero({ data }) {
