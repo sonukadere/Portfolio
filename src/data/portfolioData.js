@@ -174,19 +174,35 @@ export const initialPortfolioData = {
   education: [
     {
       degree: "Master of Computer Applications (MCA)",
-      institute: "SCS&IT, Devi Ahilya Vishwavidyalaya",
-      university: "Devi Ahilya Vishwavidyalaya, Indore",
+      institute: "School of Computer Science & IT (SCS&IT)",
+      university: "Devi Ahilya Vishwavidyalaya (DAVV), Indore",
       year: "2024 – 2026",
       score: "Completed",
-      details: "Advanced study of Computer Science, Software Engineering, Database Systems, Web Technologies, and Algorithm Design."
+      details: "Advanced study of Computer Science, Software Engineering, Database Systems, Web Technologies, and Algorithm Design.",
+      coursework: [
+        "Data Structures & Algorithms",
+        "Software Engineering",
+        "Database Systems (DBMS)",
+        "Web Technologies",
+        "Object-Oriented Design",
+        "Computer Networks"
+      ]
     },
     {
       degree: "Bachelor of Computer Applications (BCA)",
-      institute: "SCS&IT, Devi Ahilya Vishwavidyalaya",
-      university: "Devi Ahilya Vishwavidyalaya, Indore",
+      institute: "School of Computer Science & IT (SCS&IT)",
+      university: "Devi Ahilya Vishwavidyalaya (DAVV), Indore",
       year: "2021 – 2024",
       score: "Graduated",
-      details: "Core coursework in Object-Oriented Programming, C++, Data Structures, Web Development, Database Management, and Operating Systems."
+      details: "Core coursework in Object-Oriented Programming, C++, Data Structures, Web Development, Database Management, and Operating Systems.",
+      coursework: [
+        "C++ Programming",
+        "Data Structures",
+        "Web Development",
+        "Database Management",
+        "Operating Systems",
+        "Computer Fundamentals"
+      ]
     }
   ],
   certifications: [

@@ -20,7 +20,7 @@ const EditModal = lazy(() => import('./components/EditModal'));
 export default function App() {
   const [portfolioData, setPortfolioData] = useState(() => {
     try {
-      const saved = localStorage.getItem('portfolio_user_data_v4');
+      const saved = localStorage.getItem('portfolio_user_data_v5');
       if (saved) {
         const parsed = JSON.parse(saved);
         if (parsed?.personal?.name === 'Sonu Kadere') {
@@ -38,7 +38,7 @@ export default function App() {
   const handleSaveData = (newData) => {
     setPortfolioData(newData);
     try {
-      localStorage.setItem('portfolio_user_data_v4', JSON.stringify(newData));
+      localStorage.setItem('portfolio_user_data_v5', JSON.stringify(newData));
     } catch (e) {
       console.warn('Could not save portfolio data to localStorage:', e);
     }
