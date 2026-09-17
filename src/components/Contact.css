@@ -248,6 +248,32 @@
   width: 100%;
   padding: 14px;
   margin-top: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.spin-icon {
+  animation: spinLoader 0.9s linear infinite;
+}
+
+@keyframes spinLoader {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.form-api-notice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: var(--radius-sm);
+  color: var(--accent-amber);
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
 }
 
 /* Success State */

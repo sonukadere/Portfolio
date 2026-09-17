@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   Mail, Phone, MapPin, Send, 
-  CheckCircle2, AlertCircle, Clock
+  CheckCircle2, AlertCircle, Clock, Loader2
 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import './Contact.css';
@@ -19,6 +19,7 @@ export default function Contact({ data }) {
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [apiNotice, setApiNotice] = useState('');
 
   const validate = () => {
     const newErrors = {};
@@ -51,12 +52,48 @@ export default function Contact({ data }) {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
 
     setSubmitting(true);
+    setApiNotice('');
 
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
+    // If Web3Forms Access Key is provided in .env, send in background directly
+    if (accessKey && accessKey.trim() !== '') {
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            access_key: accessKey.trim(),
+            name: formData.name.trim(),
+            email: formData.email.trim(),
+            subject: formData.subject.trim() || `Portfolio Contact from ${formData.name.trim()}`,
+            message: formData.message.trim(),
+            from_name: `${formData.name.trim()} (Portfolio Visitor)`
+          })
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          setSubmitting(false);
+          setSubmitted(true);
+          setFormData({ name: '', email: '', subject: '', message: '' });
+          return;
+        }
+      } catch (err) {
+        console.error('Direct submission error:', err);
+      }
+    }
+
+    // Graceful fallback to user mail client
     const subject = encodeURIComponent(formData.subject.trim() || `Portfolio Contact from ${formData.name.trim()}`);
     const body = encodeURIComponent(
       `Hi Sonu,\n\nName: ${formData.name.trim()}\nEmail: ${formData.email.trim()}\nSubject: ${formData.subject.trim() || 'General Inquiry'}\n\nMessage:\n${formData.message.trim()}`
@@ -67,7 +104,7 @@ export default function Contact({ data }) {
       setSubmitting(false);
       setSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 600);
+    }, 500);
   };
 
   return (
@@ -173,7 +210,7 @@ export default function Contact({ data }) {
                 </div>
                 <h3 className="success-title">Message Received!</h3>
                 <p className="success-desc">
-                  Thank you for reaching out. I have received your message and will reply to you as soon as possible.
+                  Thank you for reaching out! Your message was sent to <strong>{personal.email}</strong>. I will reply to you as soon as possible.
                 </p>
                 <button 
                   type="button" 
@@ -267,13 +304,23 @@ export default function Contact({ data }) {
                   )}
                 </div>
 
+                {apiNotice && (
+                  <div className="form-api-notice">
+                    <AlertCircle size={14} />
+                    <span>{apiNotice}</span>
+                  </div>
+                )}
+
                 <button 
                   type="submit" 
                   disabled={submitting} 
                   className="btn btn-primary submit-btn"
                 >
                   {submitting ? (
-                    <span>Sending Message...</span>
+                    <>
+                      <Loader2 size={18} className="spin-icon" />
+                      <span>Sending Message...</span>
+                    </>
                   ) : (
                     <>
                       <Send size={18} />
