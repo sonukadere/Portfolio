@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   ArrowRight, Mail, FileDown, 
   Terminal, Check, Copy, GitBranch 
@@ -6,9 +6,44 @@ import {
 import { GithubIcon, LinkedinIcon } from './Icons';
 import './Hero.css';
 
+const ROLES = [
+  "React.js Developer",
+  "Frontend Developer",
+  "MERN Stack Developer"
+];
+
 export default function Hero({ data }) {
   const [copied, setCopied] = useState(false);
   const { personal } = data;
+
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentRole = ROLES[roleIndex];
+    let timer;
+
+    if (!isDeleting && displayedText === currentRole) {
+      timer = setTimeout(() => setIsDeleting(true), 1800);
+    } else if (isDeleting && displayedText === '') {
+      timer = setTimeout(() => {
+        setIsDeleting(false);
+        setRoleIndex((prev) => (prev + 1) % ROLES.length);
+      }, 300);
+    } else {
+      const typingSpeed = isDeleting ? 40 : 80;
+      timer = setTimeout(() => {
+        setDisplayedText(
+          isDeleting 
+            ? currentRole.substring(0, displayedText.length - 1)
+            : currentRole.substring(0, displayedText.length + 1)
+        );
+      }, typingSpeed);
+    }
+
+    return () => clearTimeout(timer);
+  }, [displayedText, isDeleting, roleIndex]);
 
   const codeLines = [
     { num: 1, content: <>const developer = &#123;</> },
@@ -73,11 +108,10 @@ export default function Hero({ data }) {
           </h1>
 
           <div className="hero-role-badge">
-            <span className="role-tag-bracket">&lt;</span>
-            <span className="role-primary-text">React.js Developer</span>
+            <span className="role-tag-bracket">&lt; </span>
+            <span className="role-primary-text">{displayedText}</span>
+            <span className="typewriter-cursor">|</span>
             <span className="role-tag-bracket"> /&gt;</span>
-            <span className="role-divider">|</span>
-            <span className="role-secondary-text">Frontend Developer | MERN Stack Developer</span>
           </div>
 
           <p className="hero-description">
