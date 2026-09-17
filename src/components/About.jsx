@@ -1,5 +1,5 @@
 import React from 'react';
-import { User, CheckCircle2, Target, MapPin, Sparkles, Code2, Award } from 'lucide-react';
+import { User, CheckCircle2, Target, MapPin } from 'lucide-react';
 import './About.css';
 
 export default function About({ data }) {
@@ -27,7 +27,10 @@ export default function About({ data }) {
                   src={personal.avatar} 
                   alt={personal.name} 
                   className="profile-avatar-img"
+                  width="170"
+                  height="170"
                   loading="lazy"
+                  decoding="async"
                 />
               ) : (
                 <div className="profile-avatar-fallback">

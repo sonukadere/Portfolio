@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { initialPortfolioData } from './data/portfolioData';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -12,9 +12,10 @@ import Education from './components/Education';
 import ResumeCTA from './components/ResumeCTA';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import EditModal from './components/EditModal';
 import { Sparkles } from 'lucide-react';
 import './App.css';
+
+const EditModal = lazy(() => import('./components/EditModal'));
 
 export default function App() {
   const [portfolioData, setPortfolioData] = useState(() => {
@@ -110,14 +111,18 @@ export default function App() {
         <span>Customize Info</span>
       </button>
 
-      {/* In-browser Live Data Customizer */}
-      <EditModal
-        isOpen={isEditOpen}
-        onClose={() => setIsEditOpen(false)}
-        data={portfolioData}
-        onSave={handleSaveData}
-        onReset={handleResetData}
-      />
+      {/* In-browser Live Data Customizer (Lazy Loaded) */}
+      {isEditOpen && (
+        <Suspense fallback={null}>
+          <EditModal
+            isOpen={isEditOpen}
+            onClose={() => setIsEditOpen(false)}
+            data={portfolioData}
+            onSave={handleSaveData}
+            onReset={handleResetData}
+          />
+        </Suspense>
+      )}
     </div>
   );
 }

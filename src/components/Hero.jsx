@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   ArrowRight, Mail, FileDown, 
-  Terminal, Check, Copy, Sparkles, Code2, Database, Layers
+  Terminal, Check, Copy
 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import './Hero.css';

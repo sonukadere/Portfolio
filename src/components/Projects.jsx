@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, Layers, ShieldCheck, CheckCircle2, Sparkles, Server } from 'lucide-react';
+import { ExternalLink, CheckCircle2 } from 'lucide-react';
 import { GithubIcon } from './Icons';
 import './Projects.css';
 

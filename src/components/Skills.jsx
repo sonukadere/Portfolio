@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { 
-  Code2, Server, Database, Wrench, Sparkles, Check, 
+  Code2, Server, Database, Wrench, Sparkles, 
   Layers, Terminal, Layout, FileCode, Cpu, ShieldCheck, 
-  Radio, Boxes, Table, GitBranch, Send, FastForward
+  Radio, Boxes, Table, GitBranch, Send
 } from 'lucide-react';
 import './Skills.css';
 

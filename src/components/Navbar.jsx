@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Menu, X, FileDown, Terminal, 
-  Sparkles, Code2, Briefcase, GraduationCap, Mail, User
-} from 'lucide-react';
+import { Menu, X, FileDown, Sparkles } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import './Navbar.css';
 

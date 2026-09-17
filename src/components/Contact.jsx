@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   Mail, Phone, MapPin, Send, 
-  CheckCircle2, AlertCircle, Clock, Sparkles, MessageSquare
+  CheckCircle2, AlertCircle, Clock
 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import './Contact.css';
@@ -57,12 +57,17 @@ export default function Contact({ data }) {
 
     setSubmitting(true);
 
-    // Simulate reliable form submission
+    const subject = encodeURIComponent(formData.subject.trim() || `Portfolio Contact from ${formData.name.trim()}`);
+    const body = encodeURIComponent(
+      `Hi Sonu,\n\nName: ${formData.name.trim()}\nEmail: ${formData.email.trim()}\nSubject: ${formData.subject.trim() || 'General Inquiry'}\n\nMessage:\n${formData.message.trim()}`
+    );
+
     setTimeout(() => {
+      window.location.href = `mailto:${personal.email}?subject=${subject}&body=${body}`;
       setSubmitting(false);
       setSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 1000);
+    }, 600);
   };
 
   return (

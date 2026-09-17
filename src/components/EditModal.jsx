@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Save, RotateCcw, Copy, Check, Sparkles, Code2 } from 'lucide-react';
+import { X, Save, RotateCcw, Copy, Check, Sparkles } from 'lucide-react';
 import './EditModal.css';
 
 export default function EditModal({ isOpen, onClose, data, onSave, onReset }) {

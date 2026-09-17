@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { FileDown, Eye, CheckCircle, ExternalLink, Sparkles } from 'lucide-react';
+import { FileDown, Eye, CheckCircle } from 'lucide-react';
 import './ResumeCTA.css';
 
 export default function ResumeCTA({ data }) {
   const [modalOpen, setModalOpen] = useState(false);
   const { personal } = data;
 
-  const handleResumeClick = (e, action) => {
+  const handleResumeClick = (e) => {
     if (!personal.resumeUrl || personal.resumeUrl.startsWith('#') || personal.resumeUrl.includes('example.com')) {
       e.preventDefault();
       setModalOpen(true);
@@ -44,7 +44,7 @@ export default function ResumeCTA({ data }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-secondary"
-                onClick={(e) => handleResumeClick(e, 'View')}
+                onClick={handleResumeClick}
               >
                 <Eye size={18} />
                 <span>View Resume</span>

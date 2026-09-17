@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Terminal, Heart } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import './Footer.css';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, Award, Calendar, BookOpen } from 'lucide-react';
+import { GraduationCap, Calendar } from 'lucide-react';
 import './Education.css';
 
 export default function Education({ data }) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code, FolderGit2, Wrench, Bug, Zap, CheckCircle2 } from 'lucide-react';
+import { Code, FolderGit2, Wrench, Bug, Zap } from 'lucide-react';
 import './Metrics.css';
 
 export default function Metrics({ data }) {

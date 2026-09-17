@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, Calendar, MapPin, CheckCircle2, ChevronRight } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, CheckCircle2 } from 'lucide-react';
 import './Experience.css';
 
 export default function Experience({ data }) {
