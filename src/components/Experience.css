@@ -75,6 +75,27 @@
   border-bottom: 1px solid var(--border-subtle);
 }
 
+.git-commit-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: #58a6ff;
+  background: rgba(88, 166, 255, 0.1);
+  border: 1px solid rgba(88, 166, 255, 0.25);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+}
+
+.git-branch-label {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  padding-left: 6px;
+}
+
 .exp-role {
   font-size: 1.25rem;
   font-weight: 700;

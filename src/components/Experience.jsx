@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, Calendar, MapPin, CheckCircle2 } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, CheckCircle2, GitCommit } from 'lucide-react';
 import './Experience.css';
 
 export default function Experience({ data }) {
@@ -35,6 +35,11 @@ export default function Experience({ data }) {
               <div className="experience-card">
                 <div className="exp-card-header">
                   <div>
+                    <div className="git-commit-tag">
+                      <GitCommit size={13} />
+                      <span>commit ~ #{idx + 1}</span>
+                      <span className="git-branch-label">main</span>
+                    </div>
                     <h3 className="exp-role">{exp.role}</h3>
                     <h4 className="exp-company">{exp.company}</h4>
                   </div>

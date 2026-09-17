@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, FileDown, Sparkles } from 'lucide-react';
+import { Menu, X, Terminal, Sparkles } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import './Navbar.css';
 
@@ -12,16 +12,16 @@ export default function Navbar({ data, onOpenEdit }) {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      const sections = ['hero', 'about', 'skills', 'projects', 'terminal', 'experience', 'education', 'contact'];
-      const scrollPos = window.scrollY + 200;
+      const sections = ['hero', 'about', 'skills', 'experience', 'projects', 'education', 'contact'];
+      const scrollPos = window.scrollY + 180;
 
-      for (const section of sections) {
-        const el = document.getElementById(section);
+      for (const sectionId of sections) {
+        const el = document.getElementById(sectionId);
         if (el) {
           const top = el.offsetTop;
           const height = el.offsetHeight;
           if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(section);
+            setActiveSection(sectionId);
             break;
           }
         }
@@ -36,9 +36,8 @@ export default function Navbar({ data, onOpenEdit }) {
     { label: 'Home', href: '#hero', id: 'hero' },
     { label: 'About', href: '#about', id: 'about' },
     { label: 'Skills', href: '#skills', id: 'skills' },
-    { label: 'Projects', href: '#projects', id: 'projects' },
-    { label: 'Terminal', href: '#terminal', id: 'terminal' },
     { label: 'Experience', href: '#experience', id: 'experience' },
+    { label: 'Projects', href: '#projects', id: 'projects' },
     { label: 'Education', href: '#education', id: 'education' },
     { label: 'Contact', href: '#contact', id: 'contact' },
   ];
@@ -47,16 +46,15 @@ export default function Navbar({ data, onOpenEdit }) {
     setMobileMenuOpen(false);
   };
 
-  const displayName = data.personal.name || 'Developer';
-
   return (
     <header className={`navbar-header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
-        {/* Brand Terminal Logo */}
+        {/* Brand Developer Logo: <SK /> sonu.dev */}
         <a href="#hero" className="navbar-brand">
-          <span className="brand-prompt">[~]$</span>
-          <span className="brand-name">{displayName}</span>
-          <span className="brand-cursor">_</span>
+          <span className="brand-code-bracket">&lt;</span>
+          <span className="brand-code-name">SK</span>
+          <span className="brand-code-bracket"> /&gt;</span>
+          <span className="brand-subname">sonu.dev</span>
         </a>
 
         {/* Desktop Navigation */}
@@ -104,10 +102,13 @@ export default function Navbar({ data, onOpenEdit }) {
           )}
 
           <a 
-            href="#resume" 
-            className="btn btn-outline-green btn-sm"
+            href={data.personal.resumeUrl || "#resume"} 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-resume-dev"
+            title="Download / View Resume"
           >
-            <FileDown size={15} />
+            <Terminal size={14} />
             <span>Resume</span>
           </a>
 
@@ -191,7 +192,7 @@ export default function Navbar({ data, onOpenEdit }) {
               className="btn btn-primary btn-sm mobile-resume-btn"
               onClick={handleLinkClick}
             >
-              <FileDown size={16} /> Download Resume
+              <Terminal size={16} /> Download Resume
             </a>
           </div>
         </div>

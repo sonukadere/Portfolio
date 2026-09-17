@@ -99,9 +99,48 @@
 
 /* Content Box */
 .project-content {
-  padding: 32px 30px;
+  padding: 28px 28px;
   display: flex;
   flex-direction: column;
+}
+
+.repo-meta-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.repo-name-box {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+.repo-icon {
+  color: var(--accent-cyan);
+}
+
+.repo-owner {
+  color: var(--text-muted);
+}
+
+.repo-title {
+  color: #58a6ff;
+  font-weight: 600;
+}
+
+.repo-badge-public {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 1px 8px;
+  border-radius: var(--radius-full);
 }
 
 .project-tagline {

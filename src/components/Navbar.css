@@ -24,39 +24,49 @@
   height: 72px;
 }
 
-/* Brand */
+/* Brand Developer Logo */
 .navbar-brand {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 3px;
   text-decoration: none;
   font-family: var(--font-mono);
-  font-size: 1.1rem;
+  font-size: 1.22rem;
   font-weight: 700;
   color: var(--text-primary);
   transition: transform var(--transition-fast);
 }
 
 .navbar-brand:hover {
-  transform: scale(1.02);
+  transform: translateY(-1px);
 }
 
-.brand-prompt {
-  color: var(--accent-amber);
-}
-
-.brand-name {
+.brand-code-bracket {
   color: var(--accent-green-bright);
+  font-weight: 800;
 }
 
-.brand-cursor {
-  color: var(--accent-green);
-  animation: blinkCursor 1s step-end infinite;
+.brand-code-name {
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  padding: 0 1px;
 }
 
-@keyframes blinkCursor {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+.brand-subname {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin-left: 8px;
+  padding: 2px 7px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.navbar-brand:hover .brand-subname {
+  color: var(--accent-cyan);
+  border-color: rgba(56, 189, 248, 0.3);
 }
 
 /* Navigation links */
@@ -125,6 +135,31 @@
 .social-icon-btn.linkedin:hover {
   color: #38bdf8;
   border-color: rgba(56, 189, 248, 0.4);
+}
+
+.btn-resume-dev {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--accent-green-bright);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  padding: 7px 15px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-resume-dev:hover {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: var(--accent-green-bright);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+  transform: translateY(-1px);
 }
 
 .btn-edit-pill {

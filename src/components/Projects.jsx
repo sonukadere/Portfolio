@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, CheckCircle2 } from 'lucide-react';
+import { ExternalLink, CheckCircle2, FolderGit2 } from 'lucide-react';
 import { GithubIcon } from './Icons';
 import './Projects.css';
 
@@ -71,6 +71,16 @@ export default function Projects({ data }) {
 
               {/* Details Content */}
               <div className="project-content">
+                {/* Developer Repo Meta Header */}
+                <div className="repo-meta-bar">
+                  <div className="repo-name-box">
+                    <FolderGit2 size={15} className="repo-icon" />
+                    <span className="repo-owner">sonukadere /</span>
+                    <span className="repo-title">{project.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}</span>
+                  </div>
+                  <span className="repo-badge-public">Public</span>
+                </div>
+
                 <div className="project-header">
                   <span className="project-tagline">{project.tagline}</span>
                   <h3 className="project-name">{project.title}</h3>
