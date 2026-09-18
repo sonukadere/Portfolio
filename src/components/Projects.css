@@ -8,20 +8,14 @@
 }
 
 .projects-section .section-title {
-  white-space: nowrap;
+  font-size: clamp(1.65rem, 3.5vw, 2.25rem);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .projects-section .section-subtitle {
-  white-space: nowrap;
-  font-size: clamp(0.92rem, 1.15vw, 1.05rem);
-}
-
-@media (max-width: 920px) {
-  .projects-section .section-title,
-  .projects-section .section-subtitle {
-    white-space: normal;
-    text-wrap: balance;
-  }
+  font-size: clamp(0.92rem, 1.8vw, 1.05rem);
+  overflow-wrap: break-word;
 }
 
 /* Category Filter Bar */
@@ -29,8 +23,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 48px;
+  gap: 8px;
+  margin-bottom: clamp(28px, 4vw, 48px);
   flex-wrap: wrap;
 }
 
@@ -430,7 +424,7 @@
 @media (max-width: 1100px) {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 22px;
+    gap: 20px;
   }
 }
 
@@ -441,6 +435,31 @@
   }
 
   .project-content {
-    padding: 18px;
+    padding: 16px;
+  }
+
+  .project-media-wrapper {
+    height: 165px;
+  }
+
+  .modal-dialog {
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 380px) {
+  .project-actions {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .project-btn {
+    min-height: 40px;
+  }
+
+  .window-address-bar {
+    font-size: 0.68rem;
+    padding: 2px 6px;
   }
 }

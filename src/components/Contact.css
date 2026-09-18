@@ -93,12 +93,11 @@
 }
 
 .contact-channel-value {
-  font-size: 0.95rem;
+  font-size: clamp(0.82rem, 2.4vw, 0.95rem);
   font-weight: 600;
   color: var(--text-primary);
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+  word-break: break-all;
+  overflow-wrap: break-word;
 }
 
 .contact-socials-block {
@@ -307,7 +306,14 @@
 @media (max-width: 960px) {
   .contact-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-input,
+  .form-textarea {
+    font-size: 16px; /* Prevents auto-zoom on iOS Safari */
   }
 }
 
@@ -318,6 +324,24 @@
 
   .contact-info-panel,
   .contact-form-panel {
-    padding: 24px 20px;
+    padding: 20px 16px;
+    border-radius: var(--radius-md);
+  }
+}
+
+@media (max-width: 380px) {
+  .socials-buttons-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .contact-info-card {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .contact-icon-box {
+    width: 36px;
+    height: 36px;
   }
 }

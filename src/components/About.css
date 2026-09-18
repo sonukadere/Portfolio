@@ -3,21 +3,15 @@
 }
 
 .about-section .section-title {
-  white-space: nowrap;
-  font-size: clamp(1.5rem, 2.35vw, 2.25rem);
-}
-
-@media (max-width: 768px) {
-  .about-section .section-title {
-    white-space: normal;
-    font-size: 1.75rem;
-  }
+  font-size: clamp(1.65rem, 3.5vw, 2.25rem);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .about-grid {
   display: grid;
   grid-template-columns: 360px 1fr;
-  gap: 40px;
+  gap: clamp(24px, 4vw, 40px);
   align-items: start;
 }
 
@@ -26,7 +20,7 @@
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  padding: 36px 28px;
+  padding: clamp(24px, 4vw, 36px) clamp(16px, 3vw, 28px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,6 +29,8 @@
   overflow: hidden;
   box-shadow: var(--shadow-md);
   transition: all var(--transition-normal);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .about-profile-card:hover {
@@ -259,7 +255,7 @@
 @media (max-width: 960px) {
   .about-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 28px;
   }
 
   .highlights-list {
@@ -270,6 +266,28 @@
 @media (max-width: 640px) {
   .about-profile-card,
   .about-content {
-    padding: 24px 20px;
+    padding: 20px 16px;
+    border-radius: var(--radius-md);
+  }
+
+  .about-greeting {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .profile-image-container {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 16px;
+  }
+
+  .career-goal-card {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .terminal-prompt-bar {
+    font-size: 0.76rem;
   }
 }

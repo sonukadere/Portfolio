@@ -1,14 +1,14 @@
 .hero-section {
   position: relative;
-  padding-top: 135px;
-  padding-bottom: 90px;
+  padding-top: clamp(85px, 10vw, 135px);
+  padding-bottom: clamp(48px, 6vw, 90px);
   overflow: hidden;
 }
 
 .hero-container {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: 48px;
+  gap: clamp(24px, 4vw, 48px);
   align-items: center;
 }
 
@@ -17,6 +17,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
+  min-width: 0;
 }
 
 /* Terminal Whoami Prompt Strip */
@@ -32,13 +34,14 @@
   font-family: var(--font-mono);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   max-width: 100%;
+  box-sizing: border-box;
 }
 
 .whoami-prompt-row {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.86rem;
+  font-size: clamp(0.78rem, 1.8vw, 0.86rem);
 }
 
 .whoami-symbol {
@@ -56,8 +59,8 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
-  font-size: 0.8rem;
+  gap: 6px 8px;
+  font-size: clamp(0.72rem, 1.6vw, 0.8rem);
   color: var(--text-muted);
   line-height: 1.4;
 }
@@ -73,12 +76,14 @@
 
 /* Main Title */
 .hero-title {
-  font-size: 3.2rem;
+  font-size: clamp(1.85rem, 5.2vw, 3.2rem);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.03em;
   color: var(--text-primary);
   margin-bottom: 14px;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 /* Developer Role Tag - Typewriter */
@@ -87,14 +92,16 @@
   align-items: center;
   gap: 2px;
   font-family: var(--font-mono);
-  font-size: 1.05rem;
+  font-size: clamp(0.82rem, 2.2vw, 1.05rem);
   margin-bottom: 20px;
   background: rgba(16, 185, 129, 0.08);
   border: 1px solid rgba(16, 185, 129, 0.28);
-  padding: 8px 16px;
+  padding: 8px 14px;
   border-radius: var(--radius-sm);
   min-height: 42px;
   box-shadow: 0 0 20px rgba(16, 185, 129, 0.08);
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .role-tag-bracket {
@@ -107,6 +114,7 @@
   color: #38bdf8;
   font-weight: 700;
   letter-spacing: 0.02em;
+  overflow-wrap: break-word;
 }
 
 .typewriter-cursor {
@@ -124,7 +132,7 @@
 }
 
 .hero-description {
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 1.9vw, 1.1rem);
   line-height: 1.7;
   color: var(--text-secondary);
   margin-bottom: 28px;
@@ -449,42 +457,17 @@
   color: var(--accent-green-bright);
 }
 
-/* Responsive */
+/* Responsive Breakpoints */
 @media (max-width: 1024px) {
   .hero-container {
     grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .hero-title {
-    font-size: 2.7rem;
+    gap: 36px;
   }
 }
 
 @media (max-width: 640px) {
-  .hero-section {
-    padding-top: 105px;
-    padding-bottom: 60px;
-  }
-
-  .hero-title {
-    font-size: 2.15rem;
-  }
-
   .terminal-whoami-box {
     padding: 8px 12px;
-  }
-
-  .whoami-output {
-    font-size: 0.75rem;
-  }
-
-  .hero-role-badge {
-    font-size: 0.86rem;
-  }
-
-  .hero-description {
-    font-size: 0.98rem;
   }
 
   .hero-actions {
@@ -499,11 +482,47 @@
 
   .code-editor-layout {
     font-size: 0.78rem;
-    gap: 10px;
+    gap: 8px;
   }
 
   .editor-gutter {
-    min-width: 18px;
-    padding-right: 8px;
+    min-width: 16px;
+    padding-right: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .meta-socials {
+    gap: 10px;
+  }
+  
+  .hero-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .vscode-status-bar .right-meta .status-sub-item:first-child {
+    display: none;
+  }
+
+  .vscode-status-bar {
+    font-size: 0.68rem;
+    padding: 4px 8px;
+  }
+
+  .vscode-tab {
+    padding: 0 8px;
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .vscode-status-bar .right-meta .status-sub-item:last-child {
+    display: none;
+  }
+
+  .whoami-prompt-row {
+    font-size: 0.75rem;
   }
 }

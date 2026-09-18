@@ -42,7 +42,7 @@
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  padding: 28px;
+  padding: clamp(18px, 3.5vw, 28px);
   box-shadow: var(--shadow-md);
   transition: all var(--transition-normal);
   position: relative;
@@ -173,11 +173,28 @@
 @media (max-width: 960px) {
   .skills-cards-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 540px) {
   .skills-tags-grid {
     grid-template-columns: 1fr;
+  }
+
+  .filter-tab-btn {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .skill-item-card {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .skill-name {
+    font-size: 0.84rem;
   }
 }

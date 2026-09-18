@@ -136,6 +136,13 @@
   gap: 10px;
 }
 
+@media (max-width: 768px) {
+  .edit-field input,
+  .edit-field textarea {
+    font-size: 16px; /* Prevents auto-zoom on iOS Safari */
+  }
+}
+
 @media (max-width: 640px) {
   .edit-fields-grid {
     grid-template-columns: 1fr;
@@ -153,5 +160,34 @@
   .footer-left-actions,
   .footer-right-actions {
     justify-content: space-between;
+  }
+}
+
+@media (max-width: 480px) {
+  .edit-modal-backdrop {
+    padding: 10px;
+  }
+
+  .edit-modal-window {
+    max-height: 95vh;
+    border-radius: var(--radius-md);
+  }
+
+  .edit-modal-header {
+    padding: 14px 16px;
+  }
+
+  .edit-modal-form {
+    padding: 16px 14px;
+    gap: 14px;
+  }
+
+  .edit-modal-footer {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .edit-modal-title {
+    font-size: 1.05rem;
   }
 }

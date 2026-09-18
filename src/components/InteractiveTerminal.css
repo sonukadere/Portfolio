@@ -169,6 +169,7 @@
   color: #f8fafc;
   font-family: var(--font-mono);
   font-size: 0.88rem;
+  min-width: 0;
 }
 
 .terminal-submit-arrow {
@@ -185,13 +186,57 @@
   color: var(--accent-green-bright);
 }
 
+@media (max-width: 768px) {
+  .terminal-real-input {
+    font-size: 16px; /* Prevents unwanted iOS Safari page zoom */
+  }
+}
+
 @media (max-width: 640px) {
   .terminal-screen {
-    min-height: 320px;
-    padding: 16px;
+    min-height: 300px;
+    padding: 16px 14px;
   }
 
   .quick-commands-bar {
     padding: 8px 12px;
+    gap: 6px;
+  }
+
+  .cmd-chip {
+    padding: 4px 9px;
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .term-user,
+  .term-sep {
+    display: none;
+  }
+
+  .nav-bar-label {
+    font-size: 0.72rem;
+  }
+
+  .terminal-dot {
+    width: 9px;
+    height: 9px;
+  }
+
+  .terminal-nav-bar {
+    padding: 10px 12px;
+  }
+
+  .log-output-pre {
+    font-size: 0.78rem;
+    line-height: 1.55;
+  }
+}
+
+@media (max-width: 360px) {
+  .quick-label {
+    width: 100%;
+    margin-bottom: 2px;
   }
 }

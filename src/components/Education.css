@@ -8,20 +8,14 @@
 }
 
 .education-section .section-title {
-  white-space: nowrap;
+  font-size: clamp(1.65rem, 3.5vw, 2.25rem);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .education-section .section-subtitle {
-  white-space: nowrap;
-  font-size: clamp(0.92rem, 1.15vw, 1.05rem);
-}
-
-@media (max-width: 920px) {
-  .education-section .section-title,
-  .education-section .section-subtitle {
-    white-space: normal;
-    text-wrap: balance;
-  }
+  font-size: clamp(0.92rem, 1.8vw, 1.05rem);
+  overflow-wrap: break-word;
 }
 
 .education-grid {
@@ -180,8 +174,11 @@
   border: 1px solid rgba(56, 189, 248, 0.28);
   padding: 4px 12px;
   border-radius: var(--radius-sm);
+  max-width: 100%;
+  flex-wrap: wrap;
   width: fit-content;
   margin-top: 2px;
+  box-sizing: border-box;
 }
 
 .edu-univ-highlight .location-icon {
@@ -193,6 +190,7 @@
   font-weight: 600;
   color: var(--accent-cyan);
   letter-spacing: 0.01em;
+  word-break: break-word;
 }
 
 .edu-summary-text {
@@ -251,7 +249,6 @@
   transform: translateY(-1px);
 }
 
-
 @media (max-width: 900px) {
   .education-grid {
     grid-template-columns: 1fr;
@@ -260,5 +257,32 @@
 
   .edu-card-body {
     padding: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .edu-card-body {
+    padding: 18px 16px;
+  }
+
+  .edu-degree-title {
+    font-size: 1.15rem;
+  }
+
+  .edu-window-bar {
+    padding: 8px 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .edu-meta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .edu-course-chip {
+    font-size: 0.72rem;
+    padding: 4px 8px;
   }
 }

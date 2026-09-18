@@ -123,29 +123,23 @@ body::before {
   max-width: 1240px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: clamp(14px, 4vw, 24px);
+  padding-right: clamp(14px, 4vw, 24px);
   position: relative;
   z-index: 1;
 }
 
 .section {
-  padding: 90px 0;
+  padding: clamp(52px, 7vw, 90px) 0;
   position: relative;
   z-index: 1;
-}
-
-@media (max-width: 768px) {
-  .section {
-    padding: 60px 0;
-  }
 }
 
 /* Section Header Motif */
 .section-header {
   text-align: center;
   max-width: 720px;
-  margin: 0 auto 50px auto;
+  margin: 0 auto clamp(32px, 5vw, 50px) auto;
 }
 
 .section-tag {
@@ -154,13 +148,13 @@ body::before {
   gap: 8px;
   padding: 6px 14px;
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: clamp(0.75rem, 1.8vw, 0.82rem);
   font-weight: 500;
   color: var(--accent-green-bright);
   background: rgba(16, 185, 129, 0.08);
   border: 1px solid rgba(16, 185, 129, 0.25);
   border-radius: var(--radius-full);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   letter-spacing: 0.02em;
 }
 
@@ -176,22 +170,18 @@ body::before {
 }
 
 .section-title {
-  font-size: 2.25rem;
+  font-size: clamp(1.65rem, 4vw, 2.25rem);
   font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--text-primary);
   line-height: 1.25;
-  margin-bottom: 14px;
-}
-
-@media (max-width: 768px) {
-  .section-title {
-    font-size: 1.85rem;
-  }
+  margin-bottom: 12px;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .section-subtitle {
-  font-size: 1.05rem;
+  font-size: clamp(0.92rem, 1.8vw, 1.05rem);
   color: var(--text-secondary);
   line-height: 1.6;
 }

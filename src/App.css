@@ -47,3 +47,13 @@
     font-size: 0.78rem;
   }
 }
+
+@media (max-width: 420px) {
+  .floating-customize-btn {
+    bottom: 14px;
+    right: 14px;
+    padding: 7px 12px;
+    font-size: 0.74rem;
+    gap: 5px;
+  }
+}
